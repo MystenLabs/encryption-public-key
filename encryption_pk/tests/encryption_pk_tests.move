@@ -1,4 +1,5 @@
-
+// Copyright (c) Mysten Labs, Inc.
+// SPDX-License-Identifier: Apache-2.0
 #[test_only]
 module encryption_pk::encryption_pk_tests {
     use encryption_pk::encryption_pk::create_pk;

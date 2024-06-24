@@ -1,4 +1,5 @@
-/// Module: encryption_pk
+// Copyright (c) Mysten Labs, Inc.
+// SPDX-License-Identifier: Apache-2.0
 module encryption_pk::encryption_pk {
     use std::string::String;
 
