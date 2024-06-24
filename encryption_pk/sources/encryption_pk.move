@@ -5,15 +5,15 @@ module encryption_pk::encryption_pk {
     use sui::group_ops::Element;
     use sui::bls12381::{Self, G1};
 
-    public struct UserPublicKey has key, store {
+    public struct UserEncryptionPublicKey has key, store {
         id: UID,
-        pk: Element<G1>, // 32 bytes of public key for encryption
-        description: String // string that stores additional information about the encryption key. 
+        pk: Element<G1>, // A valid G1 element that represents the public key for the encryption key. 
+        description: String // A string that stores additional information about the encryption key. 
     }
 
-    public fun create_pk(pk: vector<u8>, description: String, ctx: &mut TxContext) {
+    public fun create_encryption_pk(pk: vector<u8>, description: String, ctx: &mut TxContext) {
         transfer::public_transfer(
-            UserPublicKey {
+            UserEncryptionPublicKey {
                 id: object::new(ctx),
                 pk: bls12381::g1_from_bytes(&pk),
                 description: description
